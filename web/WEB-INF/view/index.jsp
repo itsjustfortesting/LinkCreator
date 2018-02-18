@@ -44,9 +44,7 @@
         <form:form action="${pageContext.request.contextPath}/findagent" method="post">
             <div class="row justify-content-start">
                 <div class="col-1"></div>
-                <div class="col-2"><spring:message code="view.index.agent.searchwith"/>
-                    <img src="${pageContext.request.contextPath}/resources/images/qmark.png" width="15" height="15" data-toggle="tooltip" title="Hooray!"> :
-                </div>
+                <div class="col-2"><spring:message code="view.index.agent.searchwith"/>:</div>
                 <div class="col-5">
                     <input type="radio" name="identifierType" value="agsymbol"><spring:message code="view.index.agent.searchwithsymbol"/><br>
                     <input type="radio" name="identifierType" value="taxnumber"><spring:message code="view.index.agent.searchwithnip"/><br>
@@ -81,6 +79,15 @@
     </c:if>
     <!-- x. Agent data -->
     <c:if test="${agent != null}">
+        <!-- x.x Agent data : Search again -->
+        <div class="row">
+            <div class="col-8">
+                <h6>
+                    <button class="btn btn-success"><a href="${pageContext.request.contextPath}/"><spring:message code="view.index.agent.searchagain"/></a></button>
+                </h6>
+            </div>
+        </div>
+        <!-- x.x Agent data : Title -->
         <div class="row">
             <div class="col-8">
                 <h6><spring:message code="view.index.agent.agentdata"/></h6>
@@ -101,7 +108,9 @@
         <!-- x.x Agent data : WWW -->
         <div class="row justify-content-start">
             <div class="col-1"></div>
-            <div class="col-2"><spring:message code="view.index.agent.www"/>:</div>
+            <div class="col-2"><spring:message code="view.index.agent.www"/>:
+                <img src="${pageContext.request.contextPath}/resources/images/qmark.png" width="15" height="15" data-toggle="tooltip" title="Hooray!">
+            </div>
             <div class="col-5"><input type="text" value="${agent.www}"></div>
         </div>
         <!-- x.x Agent data : Update www -->
