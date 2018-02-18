@@ -26,6 +26,8 @@ public class MainController {
         Agent agent = agentService.getAgent(agentIdentifier);
         if (agent == null) {
             model.addAttribute("formerror", "noAgentFound");
+            model.addAttribute("formerror_identifierValue", identifierValue);
+            model.addAttribute("formerror_identifierType", identifierType);
         } else {
             model.addAttribute("agent", agent);
         }
