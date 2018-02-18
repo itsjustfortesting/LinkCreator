@@ -20,11 +20,15 @@ public class MainController {
     }
 
     @RequestMapping("/findagent")
-    public String getAgent(@RequestParam("agentIdentifier") String agentIdentifier, Model model) {
+    public String getAgent(@RequestParam("identifierType") String identifierType, @RequestParam("identifierValue") String identifierValue, Model model) {
+        identifierValue = identifierValue.replace(":", "");
+        String agentIdentifier = identifierType + ":" + identifierValue;
         Agent agent = agentService.getAgent(agentIdentifier);
-        model.addAttribute("agent", agent);
-        return "test";
+        if (agent == null) {
+            model.addAttribute("formerror", "noAgentFound");
+        } else {
+            model.addAttribute("agent", agent);
+        }
+        return "index";
     }
-
-
 }

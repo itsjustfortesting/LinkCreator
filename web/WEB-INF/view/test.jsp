@@ -4,8 +4,7 @@
     <title>Title</title>
 </head>
 <body>
-Symbol: ${agent.agSymbol}<br>
-Tax: ${agent.taxNumber}<br>
-WWW: ${agent.www}
+Typ: ${typ}
+Symbol: ${numer}<br>
 </body>
 </html>
